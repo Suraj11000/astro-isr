@@ -5,7 +5,7 @@ function getTimestamp() {
 }
 
 const server = http.createServer((req, res) => {
-    if (req.url === '/api/timestamp') {
+    if (req.url === '/') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ timestamp: getTimestamp() }));
     } else {
