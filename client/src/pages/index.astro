@@ -1,18 +1,17 @@
 ---
-const response = await fetch('/api/timestamp');
-const data = await response.json();
-const timestamp = data.timestamp;
-
+// const response = await fetch('http://localhost:3000/api/timestamp');
+// const data = await response.json();
+// const timestamp = data.timestamp;
 // Setting cache-control header for ISR
-Astro.response.headers.set('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=59');
+const currentTime = new Date().toLocaleTimeString();
 ---
 
 <html>
-    <head>
-        <title>Timestamp with ISR</title>
-    </head>
-    <body>
-        <h1>Current Timestamp</h1>
-        <p>{timestamp}</p>
-    </body>
+  <head>
+    <title>Timestamp with ISR</title>
+  </head>
+  <body>
+    <h1>Current Timestamp</h1>
+    <p>{currentTime}</p>
+  </body>
 </html>
