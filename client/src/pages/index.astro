@@ -1,9 +1,7 @@
 ---
-// const response = await fetch('http://localhost:3000/api/timestamp');
-// const data = await response.json();
-// const timestamp = data.timestamp;
-// Setting cache-control header for ISR
-const currentTime = new Date().toLocaleTimeString();
+const response = await fetch('https://astro-isr-m8rf.vercel.app');
+const data = await response.json();
+const timestamp = new Date(data.timestamp).toLocaleString();
 ---
 
 <html>
@@ -12,6 +10,6 @@ const currentTime = new Date().toLocaleTimeString();
   </head>
   <body>
     <h1>Current Timestamp</h1>
-    <p>{currentTime}</p>
+    <p>{timestamp}</p>
   </body>
 </html>
